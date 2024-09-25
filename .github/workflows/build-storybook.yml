@@ -1,0 +1,53 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install root dependencies
+        run: npm install
+
+      # Install and build for designer-daily-report
+      - name: Install dependencies for designer-daily-report
+        working-directory: ./designer-daily-report
+        run: npm install
+
+      - name: Build Storybook for designer-daily-report
+        run: PUBLIC_URL=https://nima70.github.io/POC-HeroComponents50/storybook/designer-daily-report npm run build-storybook --prefix designer-daily-report -- -o ../docs/storybook/designer-daily-report
+
+      # Install and build for quin
+      - name: Install dependencies for quin
+        working-directory: ./quin
+        run: npm install
+
+      - name: Build Storybook for quin
+        run: PUBLIC_URL=https://nima70.github.io/POC-HeroComponents50/storybook/quin npm run build-storybook --prefix quin -- -o ../docs/storybook/quin
+
+      # Install and build for fin-tech
+      - name: Install dependencies for fin-tech
+        working-directory: ./fin-tech
+        run: npm install
+
+      - name: Build Storybook for fin-tech
+        run: PUBLIC_URL=https://nima70.github.io/POC-HeroComponents50/storybook/fin-tech npm run build-storybook --prefix fin-tech -- -o ../docs/storybook/fin-tech
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs

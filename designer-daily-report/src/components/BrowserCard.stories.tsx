@@ -13,7 +13,7 @@ const meta: Meta<typeof BrowserCard> = {
     logoSrc: {
       control: "text",
       description: "URL of the logo image",
-      defaultValue: "/chrome.svg",
+      defaultValue: `${process.env.PUBLIC_URL}/chrome.svg`, // Directly using process.env.PUBLIC_URL
     },
     logoAlt: {
       control: "text",
@@ -37,7 +37,7 @@ const meta: Meta<typeof BrowserCard> = {
     },
   },
   args: {
-    logoSrc: "/chrome.svg",
+    logoSrc: `${process.env.PUBLIC_URL}/chrome.svg`, // Using process.env.PUBLIC_URL directly
     logoAlt: "Chrome Web Store",
     title: "chrome web store",
     reviewCount: 378,
@@ -55,7 +55,7 @@ export const Default: Story = {};
 // BrowserCard with full stars
 export const AllFullStars: Story = {
   args: {
-    logoSrc: "/chrome.svg",
+    logoSrc: `${process.env.PUBLIC_URL}/chrome.svg`,
     logoAlt: "Chrome Web Store",
     title: "Fully Rated Store",
     reviewCount: 1200,
@@ -66,7 +66,7 @@ export const AllFullStars: Story = {
 // Half star scenario
 export const HalfStarRating: Story = {
   args: {
-    logoSrc: "/chrome.svg",
+    logoSrc: `${process.env.PUBLIC_URL}/chrome.svg`,
     logoAlt: "Chrome Web Store",
     title: "Half Star Rating",
     reviewCount: 540,
@@ -77,7 +77,7 @@ export const HalfStarRating: Story = {
 // Low rating with mostly empty stars
 export const LowRating: Story = {
   args: {
-    logoSrc: "/chrome.svg",
+    logoSrc: `${process.env.PUBLIC_URL}/chrome.svg`,
     logoAlt: "Chrome Web Store",
     title: "Low Rated Store",
     reviewCount: 150,
@@ -88,7 +88,7 @@ export const LowRating: Story = {
 // BrowserCard with no reviews and no stars
 export const NoReviews: Story = {
   args: {
-    logoSrc: "/chrome.svg",
+    logoSrc: `${process.env.PUBLIC_URL}/chrome.svg`,
     logoAlt: "Chrome Web Store",
     title: "No Reviews Yet",
     reviewCount: 0,
@@ -99,7 +99,7 @@ export const NoReviews: Story = {
 // BrowserCard with custom content and partial stars
 export const CustomContent: Story = {
   args: {
-    logoSrc: "/chrome.svg", // Custom logo
+    logoSrc: `${process.env.PUBLIC_URL}/chrome.svg`, // Custom logo using process.env.PUBLIC_URL
     logoAlt: "Another Web Store",
     title: "Another Web Store",
     reviewCount: 1500,
@@ -110,7 +110,7 @@ export const CustomContent: Story = {
 // BrowserCard with a high number of reviews and full stars
 export const HighReviewCount: Story = {
   args: {
-    logoSrc: "/chrome.svg",
+    logoSrc: `${process.env.PUBLIC_URL}/chrome.svg`,
     logoAlt: "Chrome Web Store",
     title: "Highly Rated Web Store",
     reviewCount: 10000,
@@ -121,7 +121,7 @@ export const HighReviewCount: Story = {
 // BrowserCard with zero stars and zero reviews
 export const NoStars: Story = {
   args: {
-    logoSrc: "/chrome.svg",
+    logoSrc: `${process.env.PUBLIC_URL}/chrome.svg`,
     logoAlt: "Chrome Web Store",
     title: "No Stars Web Store",
     reviewCount: 0,
@@ -129,24 +129,23 @@ export const NoStars: Story = {
   },
 };
 
-  
-  // Story to simulate height issue
-  export const SimulateHeightIssue: Story = {
-    args: {
-      logoSrc: "/chrome.svg",
-      logoAlt: "Chrome Web Store",
-      title: "Simulating Height Issue",
-      reviewCount: 500,
-      rating: 4.7,
-    },
-    render: (args) => (
-      <div
-        className="flex flex-col items-center justify-center min-h-screen h-full w-full overflow-hidden bg-gray-100"
-        style={{ height: "80vh" }} // Simulate height constraint
-      >
-        <div className="max-w-2xl flex flex-col items-center justify-center p-10 bg-white rounded-lg shadow-md">
-          <BrowserCard {...args} />
-        </div>
+// Story to simulate height issue
+export const SimulateHeightIssue: Story = {
+  args: {
+    logoSrc: `${process.env.PUBLIC_URL}/chrome.svg`,
+    logoAlt: "Chrome Web Store",
+    title: "Simulating Height Issue",
+    reviewCount: 500,
+    rating: 4.7,
+  },
+  render: (args) => (
+    <div
+      className="flex flex-col items-center justify-center min-h-screen h-full w-full overflow-hidden bg-gray-100"
+      style={{ height: "80vh" }} // Simulate height constraint
+    >
+      <div className="max-w-2xl flex flex-col items-center justify-center p-10 bg-white rounded-lg shadow-md">
+        <BrowserCard {...args} />
       </div>
-    ),
-  };
+    </div>
+  ),
+};

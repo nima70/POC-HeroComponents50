@@ -4,42 +4,41 @@ import BrowserCard from "./BrowserCard"; // Import your BrowserCard component
 // Define the browsers data (logoSrc, logoAlt, title)
 const browsers = {
   edge: {
-    logoSrc: "/edge.svg", // You need to provide the appropriate SVGs
+    logoSrc: `${process.env.PUBLIC_URL}/edge.svg`, // Update the path dynamically
     logoAlt: "Edge Web Store",
     title: "Edge Web Store",
     reviewCount: 220,
     rating: 4.7,
   },
   chrome: {
-    logoSrc: "/chrome.svg",
+    logoSrc: `${process.env.PUBLIC_URL}/chrome.svg`, // Update the path dynamically
     logoAlt: "Chrome Web Store",
     title: "Chrome Web Store",
     reviewCount: 378,
     rating: 4.9,
   },
   firefox: {
-    logoSrc: "/firefox.svg",
+    logoSrc: `${process.env.PUBLIC_URL}/firefox.svg`, // Update the path dynamically
     logoAlt: "Firefox Add-ons",
     title: "Firefox Add-ons",
     reviewCount: 120,
     rating: 4.5,
   },
   safari: {
-    logoSrc: "/safari.svg",
+    logoSrc: `${process.env.PUBLIC_URL}/safari.svg`, // Update the path dynamically
     logoAlt: "Safari Extensions",
     title: "Safari Extensions",
     reviewCount: 90,
     rating: 4.3,
   },
   opera: {
-    logoSrc: "/opera.svg",
+    logoSrc: `${process.env.PUBLIC_URL}/opera.svg`, // Update the path dynamically
     logoAlt: "Opera Add-ons",
     title: "Opera Add-ons",
     reviewCount: 65,
     rating: 4.1,
   },
 };
-
 // Define types for the props
 interface BrowserSelectorProps {
   selectedBrowser: string; // This will be the value from the combobox

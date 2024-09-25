@@ -23,7 +23,7 @@ export const Quin: React.FC = () => {
             </div>
             <div className="mt-10">
               <img
-                src="/Quin main picture.png"
+                src={`${process.env.PUBLIC_URL}/Quin main picture.png`}
                 alt="meeting"
                 className="object-cover  rounded-lg block m-0 max-h-[100rem] "
                 style={{ marginTop: 0, marginBottom: 0 }} // Remove top margin to ensure no gaps

@@ -9,7 +9,7 @@ export const FinTrack: React.FC = () => {
       <div className=" flex flex-col-reverse md:flex-row  *:mt-20 mx-10 max-w-5xl ">
         <div className=" relative w-full h-full overflow-hidden p-0 ">
           <img
-            src="/phone.png"
+            src={`${process.env.PUBLIC_URL}/phone.png`}
             alt="Phone"
             className="object-cover  rounded-lg block m-0 max-h-[100rem]"
             style={{ marginTop: 0, marginBottom: 0 }} // Remove top margin to ensure no gaps

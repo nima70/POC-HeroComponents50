@@ -1,0 +1,11 @@
+{
+  "name": "POC-HeroComponents50",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build-storybook:designer-daily-report": "npm run build-storybook --prefix designer-daily-report",
+    "build-storybook:quin": "npm run build-storybook --prefix quin",
+    "build-storybook:fin-tech": "npm run build-storybook --prefix fin-tech",
+    "build-storybook:all": "npm run build-storybook:designer-daily-report && npm run build-storybook:quin && npm run build-storybook:fin-tech"
+  }
+}
