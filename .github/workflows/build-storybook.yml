@@ -27,7 +27,8 @@ jobs:
         run: npm install
 
       - name: Build Storybook for designer-daily-report
-        run: PUBLIC_URL=https://nima70.github.io/POC-HeroComponents50/storybook/designer-daily-report npm run build-storybook --prefix designer-daily-report -- -o ../docs/storybook/designer-daily-report
+        working-directory: ./designer-daily-report
+        run: PUBLIC_URL=https://nima70.github.io/POC-HeroComponents50/storybook/designer-daily-report npm run build-storybook -- -o ../docs/storybook/designer-daily-report
 
       # Install and build for quin
       - name: Install dependencies for quin
@@ -35,7 +36,8 @@ jobs:
         run: npm install
 
       - name: Build Storybook for quin
-        run: PUBLIC_URL=https://nima70.github.io/POC-HeroComponents50/storybook/quin npm run build-storybook --prefix quin -- -o ../docs/storybook/quin
+        working-directory: ./quin
+        run: PUBLIC_URL=https://nima70.github.io/POC-HeroComponents50/storybook/quin npm run build-storybook -- -o ../docs/storybook/quin
 
       # Install and build for fin-tech
       - name: Install dependencies for fin-tech
@@ -43,7 +45,8 @@ jobs:
         run: npm install
 
       - name: Build Storybook for fin-tech
-        run: PUBLIC_URL=https://nima70.github.io/POC-HeroComponents50/storybook/fin-tech npm run build-storybook --prefix fin-tech -- -o ../docs/storybook/fin-tech
+        working-directory: ./fin-tech
+        run: PUBLIC_URL=https://nima70.github.io/POC-HeroComponents50/storybook/fin-tech npm run build-storybook -- -o ../docs/storybook/fin-tech
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
