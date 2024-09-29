@@ -2,6 +2,10 @@
 
 Proof of concept for building **50 unique hero components** for [Wickedblocks.dev](https://www.wickedblocks.dev). This project showcases a variety of responsive, reusable hero sections designed to enhance any web interface.
 
+[![Watch the video](https://img.youtube.com/vi/VrfuDkXAUAc/maxresdefault.jpg)](https://youtu.be/VrfuDkXAUAc)
+
+### [Watch this video on YouTube](https://youtu.be/VrfuDkXAUAc)
+
 ## Project Overview
 
 This repository contains a collection of hero components aimed at demonstrating the flexibility, design variety, and responsiveness required for modern web development. Each component has been designed with reusability in mind, allowing for easy integration into various frontend projects.
